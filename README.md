@@ -140,7 +140,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Create `backend/.env` (copy from `.env.example` if present):
+Create `backend/.env`:
 
 ```env
 GEMINI_API_KEY=your-key-here
@@ -161,20 +161,6 @@ Start the server:
 uvicorn app.main:app --reload --port 8000
 ```
 
-- Auto-seeds risk DB and documents on startup  
-- Docs: http://localhost:8000/docs  
-
-If you see `no such column: decision_log.payload_hash`, delete the old SQLite file and restart:
-
-```powershell
-Remove-Item -Force .\vendor_agent.db -ErrorAction SilentlyContinue
-```
-
-If you see a 404 on `text-embedding-004`, set in `.env`:
-
-```env
-GEMINI_EMBEDDING_MODEL=models/gemini-embedding-001
-```
 
 ### Frontend
 
